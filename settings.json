@@ -1,0 +1,10 @@
+{
+    "editor.codeLensFontFamily": "Monocraft",
+    "editor.fontFamily": "Monocraft",
+    "editor.inlayHints.fontFamily": "Monocraft",
+    "scm.inputFontFamily": "Monocraft",
+    "debug.console.fontFamily": "Monocraft",
+    "markdown.preview.fontFamily": "Monocraft",
+    "notebook.outputFontFamily": "Monocraft",
+    "terminal.integrated.fontFamily": "Monocraft "
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/head %>
+    <div class="wrapper">
+        <h1><%= title %></h1>
+        <div class="ra-r"></div>
+        <body>
+<% for(var i=0; i< phonelist.length; i++) {
+    if (phonelist[i]._id == updateId) {
+        var listChange = phonelist[i];
+    }
+    
+}%>
+
+            <div style="margin:0 auto ; width:50%; padding:20px">
+              <form action="/phones/update/<%= listChange._id %>" method="post">
+              <label>Name</label>
+              <input type="text" name="name" value="<%= listChange.name %>">
+                <br /> <br /> <br /> <br />
+              <label>EducationUsage</label>
+              <input type="number" name="EducationUsage"value="<%= listChange.EducationUsage %>">
+                <br /> <br /> <br /> <br />
+                <label>ShoppingUsage</label>
+              <input type="number" name="ShoppingUsage"value="<%= listChange.ShoppingUsage %>">
+                <br /> <br /> <br /> <br />
+                <label>SearchingUsage</label>
+                <input type="number" name="SearchingUsage" value="<%= listChange.SearchingUsage %>">
+                <br><br><br>
+              <button>submit</button>
+                </form>
+              </div>
+            </body>
+    </div>
+</div>
+   <% include partials/foot %>
+
+</html>

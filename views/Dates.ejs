@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/head %>
+    <div class="wrapper">
+        <h1><%= title %></h1>
+        <div class="ra-r"></div>
+        <body>
+
+            <div style="margin:0 auto ; width:50%; padding:20px">
+              <!-- url link to report page -->
+              <form action="/phones/summaryreport" method="post">
+              <label>Name</label>
+              <input type="text" name="name">
+                <br /> <br /> <br /> <br />
+                <label>Start Date</label>
+                <input type="date" name="Date1">
+                  <br /> <br /> <br /> <br />
+                  <label>End date</label>
+                  <input type="date" name="lastDate">
+                    <br /> <br /> <br /> <br />
+              <button>submit</button>
+                </form>
+              </div>
+            </body>
+    </div>
+</div>
+   <% include partials/foot %>
+
+</html>

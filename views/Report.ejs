@@ -1,0 +1,139 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+    <head>            
+        <% include partials/head %> 
+    </head>
+
+        <div class="wrapperReport">
+            <h1><%= title %></h1>
+            <div class="ra-r"></div>
+            <body>
+            <table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>&nbsp;Name&nbsp;</th>
+        <th>&nbsp;Education&nbsp;</th>
+        <th class="average">&nbsp;Average Education&nbsp;</th>
+        <th>&nbsp;Shopping&nbsp;</th>
+        <th class="average">&nbsp;Average Shopping&nbsp;</th>
+        <th>&nbsp;Browsing&nbsp;</th>
+        <th class="average">&nbsp;Average Browsing&nbsp;</th>
+        <th>&nbsp;Social&nbsp; </th>
+        <th class="average">&nbsp;Average Social&nbsp;</th>
+        <th>&nbsp;Total Days&nbsp;</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+        <% var totalEducational = 0;
+        var totalShopping = 0;
+        var totalBrowsing = 0;
+        var totalSocial = 0;
+        var StartDate = null;
+        var EndDate = null;
+        var sDateTime;
+        var EDateTime;
+        for(var i=0; i < phonelist.length; i++) { 
+            if( summaryInfo.name === phonelist[i].name){
+                if (new Date(summaryInfo.Date1).getTime() <= new Date(phonelist[i].Date).getTime() && new Date(summaryInfo.lastDate).getTime() >= new Date(phonelist[i].Date).getTime()){
+                    if(StartDate == null){
+                        StartDate = phonelist[i].Date;
+                        sDateTime = new Date(StartDate).getTime();
+                    }
+                    else if(new Date(phonelist[i].Date).getTime() < sDateTime){
+                        StartDate = phonelist[i].Date;
+                        sDateTime = new Date(StartDate).getTime();
+                    }
+                    if(EndDate == null){
+                        EndDate = phonelist[i].Date;
+                        EDateTime = new Date(EndDate).getTime();
+                    }
+                    else if(new Date(phonelist[i].Date).getTime() > EDateTime){
+                        EndDate = phonelist[i].Date;
+                        EDateTime = new Date(EndDate).getTime();
+                    }
+                        totalEducational += parseInt(phonelist[i].EducationUsage);
+                        totalShopping += parseInt(phonelist[i].ShoppingUsage);
+                        totalBrowsing += parseInt(phonelist[i].SearchingUsage);
+                        totalSocial += parseInt(phonelist[i].SocialUsage);
+                }
+            }
+        }
+        <!-- gets the total days  -->
+        var totalDays;
+        if (StartDate == EndDate){
+            totalDays = 1;
+        }
+        else{
+            totalDays = (EDateTime - sDateTime) / (1000 * 3600 * 24);
+        }
+        var averageEducational = totalEducational / totalDays;
+        var averageShopping = totalShopping / totalDays;
+        var averageBrowsing = totalBrowsing / totalDays;
+        var averageSocial = totalSocial / totalDays;
+       %>
+     <tr>
+
+        <td><%= summaryInfo.name %></td>
+        <td><%= totalEducational %></td>
+        <td class="average"><%= averageEducational %></td>
+        <td><%= totalShopping %></td>
+        <td class="average"><%= averageShopping %></td>
+        <td><%= totalBrowsing %></td>
+        <td class="average"><%= averageBrowsing %></td>
+        <td><%= totalSocial %></td>
+        <td class="average"><%= averageSocial %></td>
+        <td><%= totalDays %></td>
+  
+
+
+     </tr>
+
+        </thead>
+    
+        <tbody>
+    
+
+    </tbody>
+
+  </table>
+
+</body>
+</div>
+</div>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

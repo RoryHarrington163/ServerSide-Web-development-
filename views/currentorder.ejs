@@ -1,0 +1,54 @@
+
+</html> -->
+
+<!DOCTYPE html>
+
+<html>
+    
+        <% include partials/head %>
+        <div class="wrapper">
+            <h1><%= title %></h1>
+            <div class="ra-r"></div>
+            <body>
+            <table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>Name &nbsp; &nbsp;</th>
+        <th>Eductaion Usage  &nbsp; &nbsp;</th>
+        <th>Shopping Usage &nbsp; &nbsp;</th>
+        <th>Browsing Usage &nbsp; &nbsp;</th>
+        <th>Social Usage &nbsp; &nbsp;</th>
+        <th>Date &nbsp; &nbsp;</th>
+        <th>Update  &nbsp; &nbsp;</th>
+        <th>delete &nbsp; &nbsp;</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% for(var i=0; i < phonelist.length; i++) { %>
+     <tr>
+
+      <td><%= phonelist[i].name%></td>
+      <td><%= phonelist[i].EducationUsage%></td>
+      <td><%= phonelist[i].ShoppingUsage%></td>
+      <td><%= phonelist[i].SearchingUsage%></td>
+      <td><%= phonelist[i].SocialUsage%></td>
+      <td><%= phonelist[i].Date%></td>
+      <td><a href = "/phones/update/<%= phonelist[i]._id%>">update</a></td>
+      <td><a href = "/phones/delete/<%= phonelist[i]._id %>">delete</a></td>
+     
+
+
+     </tr>
+  <% } %>
+    </tbody>
+
+  </table>
+
+</body>
+</div>
+</div>
+<% include partials/foot %>
+
+</html>
